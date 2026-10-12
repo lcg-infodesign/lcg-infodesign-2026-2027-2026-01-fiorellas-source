@@ -1,8 +1,6 @@
 // Dichiarazione delle variabili globali all'inizio
 let xMax;
 let yMax;
-let xButterfly;
-let yButterfly;
 let xFlower;
 let yFlower;
 let petalRotation = 0; // Variabile per la rotazione continua dei petali
@@ -17,13 +15,12 @@ function setup() {
   frameRate(30);
   angleMode(DEGREES);
 
-/*const message =
+const message =
     "This is a template repository\nfor the course Laboratorio di Computergrafica\nCommunication Design, Politecnico di Milano";
   textAlign(CENTER, CENTER);
   textSize(16);
   text(message, width / 2, height / 2);
-  */
-
+  
 // setup delle dimensioni e delle posizioni
   xMax = windowWidth;
   yMax = windowHeight;
@@ -38,8 +35,6 @@ function draw() {
  background("#723ebe");
 
   drawFlower(xFlower, yFlower);
-  drawButterfly(xButterfly, yButterfly, 0.75, 0);
-  moveButterfly();
 }
 
 // funzione per disegnare i singoli petali 
@@ -102,35 +97,3 @@ function drawFlower(flowerX, flowerY) {
 petalRotation = petalRotation + 1;
 }
 
-// funzione per disegnare la farfalla 
-function drawButterfly(x, y, scl = 1, angle = 0) { 
-  push();
-  translate(x, y);
-  scale(scl);
-  rotate(angle);
-
-  fill(60, 30, 10);  
-  noStroke();
-  rect(0, 0, 6, 40, 3); // corpo della farfalla
-
-  fill(100, 200, 255, 220); // ali azzurre
-  ellipse(-20, -10, 35, 25); // ala superiore sinistra
-  ellipse(20, -10, 35, 25);  // ala superiore destra
-
-  ellipse(-15, 15, 25, 20);  // ala inferiore sinistra
-  ellipse(15, 15, 25, 20);   // ala inferiore destra
-
-  pop();
-} 
-
-// funzione per muovere la farfalla
-function moveButterfly() {
-  for (let step = 0; step < 1; step++) {
-  xButterfly = xButterfly + 1; 
-}
-
-  let soglia = xFlower; // soglia per fermare la farfalla sul fiore
-  if (xButterfly > soglia) {
-    xButterfly = xFlower;
-  }
-}
